@@ -1,0 +1,30 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 15rem);
+  height: 450px;
+  width: 500px;
+  padding: 40px;
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.meeting-time {
+  height: 40px;
+}
+
+.attendance {
+}

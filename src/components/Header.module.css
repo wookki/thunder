@@ -1,0 +1,114 @@
+header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gainsboro;
+  background-color: #fff;
+}
+
+header img {
+  height: 80px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+header .input-box {
+  height: 44px;
+  width: 400px;
+  box-sizing: border-box;
+  border-radius: 22px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .input-box input {
+  width: 310px;
+  height: 42px;
+  box-sizing: border-box;
+  border: none;
+  padding: 14px 0 12px 0;
+  outline: none;
+}
+
+header .btn-group {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.btn-group button {
+  width: 100px;
+  height: 26px;
+  min-width: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn-group button:first-child {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.btn-group button:nth-child(2) {
+  background-color: #da3238;
+  color: white;
+  border: none;
+}
+
+.react-icons {
+  display: none;
+  width: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+  /* 타블렛 */
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  header .btn-group {
+    display: none;
+  }
+  .header .logo-box {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .header .logo-box img {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .react-icons {
+    display: block;
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* 모바일 */
+  .header img {
+    display: none;
+  }
+
+  header .btn-group {
+    display: none;
+  }
+
+  .react-icons {
+    display: block;
+  }
+}

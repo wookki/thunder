@@ -1,0 +1,43 @@
+.user-info {
+  margin-bottom: 5px;
+}
+
+.user-info span {
+  margin-right: 3px;
+}
+
+.content-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.content-info span {
+  margin: 0 4px 0 4px;
+}
+
+.content-box {
+  padding-bottom: 50px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.meeting-info {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.meeting-info span {
+  margin: 0 4px 0 4px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 30px 0 30px 0;
+}
+
+.footer span {
+  margin-left: 5px;
+  margin-right: 5px;
+}

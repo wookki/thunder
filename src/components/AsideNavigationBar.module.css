@@ -1,0 +1,67 @@
+.asideBar {
+  position: fixed;
+  top: 0px;
+  width: 195px;
+  height: 100%;
+  background-color: #fcfcfc;
+  padding: 110px 30px 20px 30px;
+}
+
+.btn-box {
+  width: 195px;
+  height: 70px;
+  border-bottom: 1px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.asideBar button {
+  width: 180px;
+  height: 38px;
+  margin-top: 20px;
+  border: 1px solid #da3238;
+  font-size: 14px;
+  font-weight: 700;
+  color: #da3238;
+  border-radius: 4px;
+  background-color: #fcfcfc;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.category {
+  text-align: start;
+}
+
+.category ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+.category li {
+  list-style-type: none;
+}
+
+.location-box {
+  border-left: 1px solid gainsboro;
+}
+
+.location-box li {
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 0 20px 20px;
+}
+
+.location-box li a {
+  display: block;
+  color: black;
+  width: 154px;
+  height: 20px;
+}
+
+.location-box a.active {
+  font-weight: 800;
+  text-decoration-line: underline;
+}
