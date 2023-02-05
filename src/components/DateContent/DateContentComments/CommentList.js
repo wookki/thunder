@@ -16,8 +16,8 @@ const CommentList = () => {
   return (
     <Fragment>
       <div className={classes.total}>
+        <span>댓글</span>
         <span>{commentList.total}</span>
-        <span>Comments</span>
       </div>
       {commentList.list.map((comment) => (
         <MainComment key={comment.commentNum} props={comment} />

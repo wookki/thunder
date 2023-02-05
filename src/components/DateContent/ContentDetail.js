@@ -5,7 +5,7 @@ import { ClipLoader } from "react-spinners";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { FiThumbsUp } from "react-icons/fi";
 import { GoComment } from "react-icons/go";
-import { BsFillPersonPlusFill } from "react-icons/bs";
+import { BsFillPersonPlusFill, BsDot } from "react-icons/bs";
 import { GrTime } from "react-icons/gr";
 
 import classes from "./ContentDetail.module.css";
@@ -66,23 +66,24 @@ const ContentDetail = () => {
         data-testid="loader"
       />
       {!isLoading && (
-        <section>
+        <section className={classes.box}>
           <h1>{detail.title}</h1>
           <div className={classes["user-info"]}>
             <span>{detail.userInfo.company}</span>
+            <BsDot />
             <span>{detail.userInfo.nickName}</span>
           </div>
           <div className={classes["content-info"]}>
             <AiOutlineClockCircle />
             <span>{time.postTime}</span>
-            <GoComment id="comments" />
-            <span>{detail.commentCount}</span>
-          </div>
-          <div className={classes["meeting-info"]}>
             <GrTime />
             <span>{time.meetingTime}</span>
+          </div>
+          <div className={classes["meeting-info"]}>
+            <GoComment id="comments" />
+            <span>{detail.commentCount}개</span>
             <BsFillPersonPlusFill />
-            <span>{detail.attendance * 2}</span>
+            <span>{detail.attendance * 2}명</span>
           </div>
           <div className={classes["content-box"]}>{detail.content}</div>
           <div className={classes.footer}>

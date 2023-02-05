@@ -10,8 +10,8 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
-  left: calc(50% - 15rem);
+  top: 15vh;
+  left: calc(50% - 18rem);
   height: 450px;
   width: 500px;
   padding: 40px;
@@ -24,7 +24,46 @@
 
 .meeting-time {
   height: 40px;
+  width: 100%;
 }
 
 .attendance {
+  height: 40px;
+}
+
+.attendance select {
+  height: 25px;
+  width: 60px;
+  text-align: center;
+}
+
+.radio-box {
+  display: flex;
+}
+
+.radio-box div:first-child {
+  margin-right: 20px;
+}
+.title {
+  margin: 10px 0 10px 0;
+}
+.title input {
+  height: 25px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.content textarea {
+  height: 200px;
+  width: 100%;
+  margin-top: 10px;
+  /* text-align: sta/rt; */
+}
+
+.button {
+  margin-top: 10px;
+  margin-left: 85%;
+  min-width: 80px;
+  min-height: 30px;
+  cursor: pointer;
 }

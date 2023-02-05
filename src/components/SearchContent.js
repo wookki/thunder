@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { getMeetingPost } from "../store/post-actions/meetingpost-actions";
 import PostCardUI from "../UI/PostCardUI";
 import SearchContentDetail from "./SearchContentDetail";
+import classes from "./SearchContent.module.css";
 
 const SearchContent = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,13 @@ const SearchContent = () => {
   }, []);
   return (
     <PostCardUI>
+      <h1>강남</h1>
+      <header className={classes.header}>
+        <div>제목</div>
+        <div>작성자</div>
+        <div>작성일</div>
+        <div>조회</div>
+      </header>
       {filteredContentList.map((content) => (
         <SearchContentDetail key={content.postNum} content={content} />
       ))}

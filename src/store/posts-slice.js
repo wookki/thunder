@@ -7,6 +7,7 @@ const postSlice = createSlice({
     postReplace(state, action) {
       state.total = action.payload.total;
       state.list = action.payload.list;
+      // state.list.push(action.payload.list);
     },
   },
 });

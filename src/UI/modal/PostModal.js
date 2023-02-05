@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Fragment, useState } from "react";
 import ReactDOM from "react-dom";
 import classes from "./PostModal.module.css";
@@ -7,24 +8,85 @@ const BackDrop = (props) => {
 };
 
 const ModalOverLay = (props) => {
-  const [meetingTime, setMeetingTime] = useState();
+  let koreaTime = new Date(new Date().toString().split("GMT")[0] + " UTC")
+    .toISOString()
+    .slice(0, -8);
+
+  const [meetingTime, setMeetingTime] = useState(koreaTime);
+  const [attendance, setAttendance] = useState(1);
+  const [meetingLocation, setMeetingLocation] = useState("gangnam");
+  const [category, setCategory] = useState("promise");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const meetingTimeChangeHandler = (event) => {
+    if (meetingTime < koreaTime) {
+      setMeetingTime(koreaTime);
+      alert("문제있어");
+      return;
+    }
+    setMeetingTime(event.target.value);
+  };
+
+  const attendanceChangeHandler = (event) => {
+    setAttendance(event.target.value);
+  };
+  const meetingLocationChangeHandler = (event) => {
+    setMeetingLocation(event.target.value);
+  };
+  const categoryChangeHandler = (event) => {
+    setCategory(event.target.value);
+  };
+  const titleChangeHandler = (event) => {
+    setTitle(event.target.value);
+  };
+  const contentChangeHandler = (event) => {
+    setContent(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (title.length < 6 && content.length < 6) return;
+    const postContnet = async () => {
+      try {
+        const data = JSON.stringify({});
+        const config = {
+          method: "post",
+          url: "http://api-dev.theteampearl.com:8080/v1/data/post",
+          headers: {
+            Accept: "application/json",
+            Authorization: "Bearer asdfzxcv",
+          },
+          data: data,
+        };
+        const response = await axios(config);
+        const responseData = await response.data;
+        console.log(responseData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    postContnet();
+  };
   return (
     <div className={classes.modal}>
-      <form>
+      <form onSubmit={submitHandler} id="form">
         <section>
           <div className={classes["meeting-time"]}>
             <label htmlFor="meetingTime">약속시간 : </label>
             <input
+              value={meetingTime}
+              onChange={meetingTimeChangeHandler}
               id="meetingTime"
               type="datetime-local"
-              step="300"
+              step="900"
               placeholder="약속시간"
               required={true}
             />
           </div>
           <div className={classes.attendance}>
-            <label>인원수</label>
-            <select>
+            <label>인원 : </label>
+            <select value={attendance} onChange={attendanceChangeHandler}>
               <option value="1">1:1</option>
               <option value="2">2:2</option>
               <option value="3">3:3</option>
@@ -34,56 +96,86 @@ const ModalOverLay = (props) => {
             </select>
           </div>
         </section>
-        <section>
+        <section className={classes["radio-box"]}>
           <div>
+            <label>장소 : </label>
             <input
               type="radio"
-              id="contactChoice1"
-              name="contact"
-              value="email"
+              id="gangnam"
+              value="gangnam"
+              onChange={meetingLocationChangeHandler}
+              checked={meetingLocation === "gangnam"}
             />
-            <label htmlFor="contactChoice1">Email</label>
-
+            <label htmlFor="gangnam">강남</label>
             <input
               type="radio"
-              id="contactChoice2"
-              name="contact"
-              value="phone"
+              id="magok"
+              value="magok"
+              onChange={meetingLocationChangeHandler}
+              checked={meetingLocation === "magok"}
             />
-            <label htmlFor="contactChoice2">Phone</label>
-
+            <label htmlFor="magok">마곡</label>
             <input
               type="radio"
-              id="contactChoice3"
-              name="contact"
-              value="mail"
+              id="etc"
+              value="etc"
+              onChange={meetingLocationChangeHandler}
+              checked={meetingLocation === "etc"}
             />
-            <label htmlFor="contactChoice3">Mail</label>
+            <label htmlFor="etc">기타</label>
           </div>
-          {/* <div>
-            <label htmlFor="location">장소</label>
-            <option id="location">
-              <option>강남</option>
-              <option>마곡</option>
-              <option>기타</option>
-            </select>
-          </div> */}
           <div>
-            <label htmlFor="category">분류</label>
-            <select id="category">
-              <option>미팅잡기</option>
-              <option>자유게시판</option>
-              <option>기타</option>
-            </select>
+            <label>게시판 : </label>
+            <input
+              type="radio"
+              id="promise"
+              value="promise"
+              onChange={categoryChangeHandler}
+              checked={category === "promise"}
+            />
+            <label htmlFor="promise">약속잡기</label>
+            <input
+              type="radio"
+              id="free"
+              value="free"
+              onChange={categoryChangeHandler}
+              checked={category === "free"}
+            />
+            <label htmlFor="free">자유게시판</label>
+            <input
+              type="radio"
+              id="etc"
+              value="etc"
+              onChange={categoryChangeHandler}
+              checked={category === "etc"}
+            />
+            <label htmlFor="etc">기타</label>
           </div>
         </section>
-        <section>
-          <input type="text" placeholder="제목을 입력해주세요" />
+        <section className={classes.title}>
+          <label htmlFor="title">제목</label>
+          <input
+            id="title"
+            type="text"
+            placeholder="제목을 입력해주세요"
+            value={title}
+            onChange={titleChangeHandler}
+          />
         </section>
-        <section>
-          <textarea type="text" placeholder="내용을 입력해주세요" />
+        <section className={classes.content}>
+          <label htmlFor="content">내용</label>
+          <textarea
+            form="form"
+            id="content"
+            type="text"
+            placeholder="내용을 입력해주세요"
+            value={content}
+            onChange={contentChangeHandler}
+          />
         </section>
-        <button type="submit">글작성</button>
+        <button className={classes.button} type="submit">
+          글작성
+        </button>
       </form>
     </div>
   );

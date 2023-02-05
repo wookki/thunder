@@ -39,9 +39,6 @@ const AsideNavigationBar = () => {
                   마곡
                 </NavLink>
               </li>
-              <li>용인</li>
-              <li>인천</li>
-              <li>용산</li>
               <li>
                 <NavLink
                   className={(navData) =>
@@ -52,6 +49,16 @@ const AsideNavigationBar = () => {
                   기타
                 </NavLink>
               </li>
+            </ul>
+          </nav>
+        </div>
+        <div className={classes.category}>
+          <h3>자유게시판</h3>
+          <nav className={classes["location-box"]}>
+            <ul>
+              <li>미팅후기</li>
+              <li>놀이터</li>
+              <li>맛집탐방</li>
             </ul>
           </nav>
         </div>

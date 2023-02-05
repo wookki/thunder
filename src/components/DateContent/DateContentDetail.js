@@ -6,6 +6,7 @@ import { AiOutlineEye } from "react-icons/ai";
 import { FiThumbsUp } from "react-icons/fi";
 import { GoComment } from "react-icons/go";
 import { IconContext } from "react-icons";
+import { BsDot } from "react-icons/bs";
 
 const DateContentDetail = ({
   location,
@@ -30,17 +31,26 @@ const DateContentDetail = ({
       <div className={classes.content}>{filterdContent}</div>
       <div className={classes["user-info"]}>
         <span>{userInfo.company || "무직"}</span>
+        <BsDot />
         <span>{userInfo.nickName}</span>
       </div>
-      <IconContext.Provider value={{ className: "react-icons" }}>
+      <IconContext.Provider
+        value={{
+          className: "react-icons",
+        }}
+      >
         <div className={classes.counter}>
-          <AiOutlineEye />
-          <span>9,234</span>
-          <FiThumbsUp />
-          <span>{likeCount}</span>
-          <GoComment />
-          <span>{commentCount}</span>
-          <span className={classes["post-time"]}>{postTime}</span>
+          <div className={classes["counter-box"]}>
+            {/* <AiOutlineEye />
+            <span>9,234</span> */}
+            <FiThumbsUp />
+            <span>{likeCount}</span>
+            <GoComment />
+            <span>{commentCount}</span>
+          </div>
+          <div>
+            <span className={classes["post-time"]}>{postTime}</span>
+          </div>
         </div>
       </IconContext.Provider>
     </div>

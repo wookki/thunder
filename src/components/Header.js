@@ -5,6 +5,7 @@ import SignModal from "../UI/SignModal";
 
 import { BsThreeDots } from "react-icons/bs";
 import { VscListFlat } from "react-icons/vsc";
+import { GrSearch } from "react-icons/gr";
 
 const Header = () => {
   const [modal, setModal] = useState(false);
@@ -39,6 +40,7 @@ const Header = () => {
           />
         </div>
         <form onSubmit={submitHandler} className={classes["input-box"]}>
+          <GrSearch size={20} className={classes["search-icon"]} />
           <input
             placeholder="Search"
             value={searchContent}

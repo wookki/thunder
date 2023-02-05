@@ -1,0 +1,23 @@
+.box {
+  display: flex;
+  text-align: start;
+  border-bottom: 1px solid gainsboro;
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+
+.box span:nth-child(1) {
+  width: 405.73px;
+}
+.box span:nth-child(2) {
+  width: 136.03px;
+  text-align: center;
+}
+.box span:nth-child(3) {
+  width: 136.03px;
+  text-align: center;
+}
+.box span:nth-child(4) {
+  text-align: center;
+  width: 122.2px;
+}

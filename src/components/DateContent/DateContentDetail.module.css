@@ -1,7 +1,13 @@
-.content-box {
+.content-box:nth-child(2n-1) {
   height: 170px;
   padding: 20px 20px 20px 20px;
-  border: 1px solid gainsboro;
+  border-top: 1px solid gainsboro;
+  border-right: 1px solid gainsboro;
+}
+.content-box:nth-child(2n) {
+  height: 170px;
+  padding: 20px 20px 20px 20px;
+  border-top: 1px solid gainsboro;
 }
 
 .title {
@@ -18,27 +24,24 @@
 }
 
 .user-info {
-  padding-top: 20px;
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
 }
 .user-info span {
-  margin-right: 5px;
 }
 .counter {
-  padding-top: 10px;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter > div {
   display: flex;
   align-items: center;
 }
 
-.react-icons {
-  width: 10px;
-  height: 10px;
-}
-
-.counter span {
-  margin-left: 3px;
-  margin-right: 20px;
-}
-
-.counter .post-time {
-  margin-left: 220px;
+.counter-box span {
+  margin: 0 15px 0 5px;
 }

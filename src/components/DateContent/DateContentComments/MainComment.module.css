@@ -1,0 +1,22 @@
+.main-comments {
+  border-bottom: 1px solid gainsboro;
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  padding: 10px 0 20px 0;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.counter span {
+  margin: 0 10px 0 5px;
+}

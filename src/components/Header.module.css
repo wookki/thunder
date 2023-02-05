@@ -1,4 +1,4 @@
-header {
+.header {
   position: fixed;
   z-index: 1;
   top: 0;
@@ -12,13 +12,13 @@ header {
   background-color: #fff;
 }
 
-header img {
+.header img {
   height: 80px;
   margin-left: 20px;
   cursor: pointer;
 }
 
-header .input-box {
+.header .input-box {
   height: 44px;
   width: 400px;
   box-sizing: border-box;
@@ -29,7 +29,11 @@ header .input-box {
   align-items: center;
 }
 
-header .input-box input {
+.header .search-icon {
+  margin-right: 20px;
+}
+
+.header .input-box input {
   width: 310px;
   height: 42px;
   box-sizing: border-box;
@@ -38,7 +42,7 @@ header .input-box input {
   outline: none;
 }
 
-header .btn-group {
+.header .btn-group {
   display: flex;
   align-items: center;
   margin-right: 20px;
@@ -77,7 +81,7 @@ header .btn-group {
     display: flex;
     justify-content: space-between;
   }
-  header .btn-group {
+  .header .btn-group {
     display: none;
   }
   .header .logo-box {
@@ -104,7 +108,7 @@ header .btn-group {
     display: none;
   }
 
-  header .btn-group {
+  .header .btn-group {
     display: none;
   }
 

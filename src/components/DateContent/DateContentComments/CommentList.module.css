@@ -1,4 +1,8 @@
 .total {
-  padding-bottom: 20px;
-  border-bottom: 1px gainsboro;
+  padding: 0 20px 20px 20px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.total span {
+  margin-right: 5px;
 }
