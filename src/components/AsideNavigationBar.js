@@ -1,13 +1,21 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getLocation } from "../store/location-slice";
 import PostModal from "../UI/modal/PostModal";
 import classes from "./AsideNavigationBar.module.css";
 
 const AsideNavigationBar = () => {
+  const location = useSelector((state) => state.location.location);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getLocation());
+  }, []);
   const [isModal, setIsModal] = useState(false);
   const modalHandler = () => {
     setIsModal(!isModal);
   };
+  console.log(location);
   return (
     <Fragment>
       {isModal && <PostModal onModal={modalHandler} />}
@@ -19,36 +27,18 @@ const AsideNavigationBar = () => {
           <h3>장소</h3>
           <nav className={classes["location-box"]}>
             <ul>
-              <li>
-                <NavLink
-                  className={(navData) =>
-                    navData.isActive ? classes.active : ""
-                  }
-                  to="/gangnam"
-                >
-                  강남
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={(navData) =>
-                    navData.isActive ? classes.active : ""
-                  }
-                  to="/magok"
-                >
-                  마곡
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={(navData) =>
-                    navData.isActive ? classes.active : ""
-                  }
-                  to="/etc"
-                >
-                  기타
-                </NavLink>
-              </li>
+              {location.map((item) => (
+                <li>
+                  <NavLink
+                    className={(navData) =>
+                      navData.isActive ? classes.active : ""
+                    }
+                    to={`/${item.code.toLowerCase()}`}
+                  >
+                    {item.name}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
